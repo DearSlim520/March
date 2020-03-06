@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>2020年3月世界新增确诊病例统计</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+        
+        #echart {
+            width: 1000px;
+            height: 640px;
+            margin: 10px 50px;
+            background-color: #FFF5EE;
+        }
+        
+        #csvFileInput {
+            position: absolute;
+            right: 0px;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--图表放置区域-->
+    <div id="echart"></div>
+
+    <!-- 文件读取及图表展示部分 -->
+    <script type="text/javascript">
+
+        //读取csv文件、处理数据并画图
+                //插入！！！！！！！！！！！！！！！！！！！！！
+                optionTwo = {
+    title: {
+        text: '2020年3月COVID-19每日世界新增确诊病例统计',
+        subtext: '数据来自世卫组织官网'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['中国', '其他国家']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    calculable: true,
+    xAxis: [
+        {
+            type: 'category',
+            data : ['3.2', '3.3', '3.4', '3.5', '3.6', '3.7','3.8','3.9','3.10','3.11','3.12','3.13','3.14','3.15','3.16', '3.17', '3.18', '3.19', '3.20', '3.21', '3.22','3.23','3.24','3.25','3.26','3.27','3.28','3.29','3.30','3.31'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            color: ['#CA6E88'],
+            name: '中国',
+            type: 'line',
+            data: [206, 129, 120, 143],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            color: ['#633B57'],
+            name: '其他国家',
+            type: 'line',
+            data: [1774, 1848, 2075, 2055],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+};
+                //插入完毕！！！！！！！！！！！！！！！！！
+                //饼图展示部分，先初始化一个图表对象
+                var myChartTwo = echarts.init(document.getElementById('echart'));
+                myChartTwo.setOption(optionTwo);
+
+    </script>
+
+</body>
+
