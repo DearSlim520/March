@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>2020年3月世界新增确诊病例统计</title>
+    <title>2020年3月世界每日新增确诊病例统计</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.js"></script>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <style>
@@ -47,7 +47,7 @@
         trigger: 'axis'
     },
     legend: {
-        data: ['中国', '其他国家']
+        data: ['中国', '湖北以外省份', '全世界上报总计']
     },
     toolbox: {
         show: true,
@@ -62,7 +62,7 @@
     xAxis: [
         {
             type: 'category',
-            data : ['3.2', '3.3', '3.4', '3.5', '3.6', '3.7','3.8','3.9','3.10','3.11','3.12','3.13','3.14','3.15','3.16', '3.17', '3.18', '3.19', '3.20', '3.21', '3.22','3.23','3.24','3.25','3.26','3.27','3.28','3.29','3.30','3.31'],
+            data : ['3.1','3.2', '3.3', '3.4', '3.5', '3.6', '3.7','3.8','3.9','3.10','3.11','3.12','3.13','3.14','3.15','3.16', '3.17', '3.18', '3.19', '3.20', '3.21', '3.22','3.23','3.24','3.25','3.26','3.27','3.28','3.29','3.30','3.31'],
             axisTick: {
                 alignWithLabel: true
             }
@@ -75,10 +75,27 @@
     ],
     series: [
         {
-            color: ['#CA6E88'],
+            color: ['#B22222'],
             name: '中国',
             type: 'line',
-            data: [206, 129, 120, 143],
+            data: [202, 125, 119, 139, 143, 99],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            color: ['#CA6E88'],
+            name: '湖北以外省份',
+            type: 'line',
+            data: [6, 11, 4, 5, 17, 25],
             markPoint: {
                 data: [
                     {type: 'max', name: '最大值'},
@@ -93,9 +110,9 @@
         },
         {
             color: ['#633B57'],
-            name: '其他国家',
+            name: '全球总计',
             type: 'line',
-            data: [1774, 1848, 2075, 2055],
+            data: [1980, 1977, 2195, 2198, 2736],
             markPoint: {
                 data: [
                     {type: 'max', name: '最大值'},
